@@ -56,3 +56,16 @@ variable "additional_tags" {
   type        = map(string)
   default     = {}
 }
+
+# Cognito / Google OAuth
+variable "google_client_id" {
+  description = "Google OAuth Client ID for Cognito"
+  type        = string
+  sensitive   = true
+}
+
+variable "google_client_secret" {
+  description = "Google OAuth Client Secret for Cognito"
+  type        = string
+  sensitive   = true
+}

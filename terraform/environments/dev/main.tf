@@ -147,3 +147,29 @@ module "loadbalancing" {
 
   tags = var.additional_tags
 }
+
+# =============================================================================
+# Cognito Module
+# =============================================================================
+
+module "cognito" {
+  source = "../../modules/cognito"
+
+  environment          = var.environment
+  project_name         = var.project_name
+  domain_prefix        = "${var.environment}-${var.project_name}"
+  google_client_id     = var.google_client_id
+  google_client_secret = var.google_client_secret
+
+  callback_urls = [
+    "http://localhost:5173"
+  ]
+
+  logout_urls = [
+    "http://localhost:5173/login"
+  ]
+
+  refresh_token_validity_days = 3650 # 10 years - sessions persist until logout
+
+  tags = var.additional_tags
+}

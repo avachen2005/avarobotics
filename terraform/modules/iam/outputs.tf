@@ -23,3 +23,8 @@ output "infrastructure_policy_arn" {
   description = "ARN of the infrastructure policy"
   value       = aws_iam_policy.infrastructure.arn
 }
+
+output "cognito_policy_arn" {
+  description = "ARN of the Cognito policy"
+  value       = aws_iam_policy.cognito.arn
+}

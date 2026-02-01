@@ -90,3 +90,29 @@ output "target_group_arn" {
   description = "ARN of the target group"
   value       = module.loadbalancing.target_group_arn
 }
+
+# Cognito Outputs
+output "cognito_user_pool_id" {
+  description = "ID of the Cognito User Pool"
+  value       = module.cognito.user_pool_id
+}
+
+output "cognito_client_id" {
+  description = "ID of the Cognito App Client"
+  value       = module.cognito.client_id
+}
+
+output "cognito_domain" {
+  description = "Cognito hosted UI domain"
+  value       = module.cognito.domain
+}
+
+output "cognito_hosted_ui_url" {
+  description = "Full Cognito hosted UI URL"
+  value       = module.cognito.hosted_ui_url
+}
+
+output "iam_cognito_policy_arn" {
+  description = "ARN of the Cognito Policy"
+  value       = module.iam.cognito_policy_arn
+}

@@ -101,3 +101,25 @@ resource "aws_iam_role_policy_attachment" "infrastructure" {
   role       = aws_iam_role.terraform_deploy.name
   policy_arn = aws_iam_policy.infrastructure.arn
 }
+
+# -----------------------------------------------------------------------------
+# IAM Policy - Cognito Management
+# Provides permissions for Cognito User Pool and Identity Provider management
+# -----------------------------------------------------------------------------
+
+resource "aws_iam_policy" "cognito" {
+  name        = "TerraformCognitoPolicy"
+  description = "Permissions for Terraform to manage Cognito resources"
+  path        = "/"
+
+  policy = file("${path.module}/policies/cognito.json")
+
+  tags = merge(local.common_tags, {
+    Name = "TerraformCognitoPolicy"
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "cognito" {
+  role       = aws_iam_role.terraform_deploy.name
+  policy_arn = aws_iam_policy.cognito.arn
+}

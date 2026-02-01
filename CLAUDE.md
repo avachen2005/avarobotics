@@ -58,6 +58,9 @@ IAM User (透過 assume role 獲取權限)
 - Terraform >= 1.5.0 (HCL) + AWS Provider ~> 5.0, Random Provider ~> 3.0 (001-aws-api-infra)
 - S3 (Terraform state) + S3 (application assets/logs) (001-aws-api-infra)
 - N/A (IAM 是 AWS 全域服務) (002-aws-iam-permissions)
+- TypeScript 5.x (Frontend), HCL (Terraform) + React 18.3, Vite 6.x, AWS Amplify (Cognito SDK), Tailwind CSS 4.x (003-cognito-gmail-login)
+- AWS Cognito User Pool (user data), Browser localStorage/cookies (session tokens) (003-cognito-gmail-login)
+- Go 1.22+ + net/http (標準庫) (004-health-check-api)
 
 ## GitHub Issue Workflow (實作時必須遵循)
 
@@ -133,5 +136,6 @@ gh project item-list 4 --owner avachen2005 --format json | jq '.items[] | select
 | #8 | Phase 7: Polish | PVTI_lAHOAHxvcs4BN-akzgknPFE |
 
 ## Recent Changes
+- 004-health-check-api: Added Go 1.22+ + net/http (標準庫)
+- 003-cognito-gmail-login: Added TypeScript 5.x (Frontend), HCL (Terraform) + React 18.3, Vite 6.x, AWS Amplify (Cognito SDK), Tailwind CSS 4.x
 - 002-aws-iam-permissions: Added Terraform >= 1.5.0 (HCL) + AWS Provider ~> 5.0
-- 001-aws-api-infra: Added Terraform >= 1.5.0 (HCL) + AWS Provider ~> 5.0, Random Provider ~> 3.0
