@@ -1,0 +1,88 @@
+# =========================
+# General
+# =========================
+.DS_Store
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Claude Code
+.claude/
+.specify/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# =========================
+# Terraform
+# =========================
+terraform/.terraform/
+terraform/**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# =========================
+# Go
+# =========================
+api/bin/
+api/vendor/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+coverage.out
+coverage.html
+
+# =========================
+# Kubernetes
+# =========================
+k8s/**/secrets/
+kubeconfig
+*.kubeconfig
+
+# =========================
+# Android
+# =========================
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/*.apk
+android/*.aab
+android/.cxx/
+android/captures/
+
+# =========================
+# iOS
+# =========================
+ios/build/
+ios/DerivedData/
+ios/*.xcworkspace/xcuserdata/
+ios/*.xcodeproj/xcuserdata/
+ios/*.xcodeproj/project.xcworkspace/
+ios/Pods/
+ios/.build/
+ios/Package.resolved
+*.ipa
+*.dSYM.zip
+*.dSYM
