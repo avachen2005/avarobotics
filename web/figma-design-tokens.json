@@ -1,0 +1,820 @@
+{
+  "$metadata": {
+    "description": "Timeless App Design Tokens - 可使用 Figma Tokens Plugin 匯入",
+    "version": "1.1.0",
+    "author": "Timeless Team"
+  },
+  "colors": {
+    "primary": {
+      "50": {
+        "value": "#f5f3ff",
+        "type": "color",
+        "description": "Primary 50 - 淺背景"
+      },
+      "100": {
+        "value": "#ede9fe",
+        "type": "color"
+      },
+      "200": {
+        "value": "#ddd6fe",
+        "type": "color"
+      },
+      "300": {
+        "value": "#c4b5fd",
+        "type": "color"
+      },
+      "400": {
+        "value": "#a78bfa",
+        "type": "color"
+      },
+      "500": {
+        "value": "#8b5cf6",
+        "type": "color",
+        "description": "⭐ 主要使用 - 科技紫"
+      },
+      "600": {
+        "value": "#7c3aed",
+        "type": "color"
+      },
+      "700": {
+        "value": "#6d28d9",
+        "type": "color"
+      },
+      "800": {
+        "value": "#5b21b6",
+        "type": "color"
+      },
+      "900": {
+        "value": "#4c1d95",
+        "type": "color"
+      }
+    },
+    "accent": {
+      "50": {
+        "value": "#fdf4ff",
+        "type": "color"
+      },
+      "100": {
+        "value": "#fae8ff",
+        "type": "color"
+      },
+      "200": {
+        "value": "#f5d0fe",
+        "type": "color"
+      },
+      "300": {
+        "value": "#f0abfc",
+        "type": "color"
+      },
+      "400": {
+        "value": "#e879f9",
+        "type": "color",
+        "description": "⭐ 主要使用 - 霓虹粉紫"
+      },
+      "500": {
+        "value": "#d946ef",
+        "type": "color"
+      },
+      "600": {
+        "value": "#c026d3",
+        "type": "color"
+      },
+      "700": {
+        "value": "#a21caf",
+        "type": "color"
+      }
+    },
+    "secondary": {
+      "50": {
+        "value": "#ecfeff",
+        "type": "color"
+      },
+      "100": {
+        "value": "#cffafe",
+        "type": "color"
+      },
+      "200": {
+        "value": "#a5f3fc",
+        "type": "color"
+      },
+      "300": {
+        "value": "#67e8f9",
+        "type": "color"
+      },
+      "400": {
+        "value": "#22d3ee",
+        "type": "color",
+        "description": "⭐ 主要使用 - 電光藍"
+      },
+      "500": {
+        "value": "#06b6d4",
+        "type": "color"
+      },
+      "600": {
+        "value": "#0891b2",
+        "type": "color"
+      }
+    },
+    "neutral": {
+      "50": {
+        "value": "#f8fafc",
+        "type": "color"
+      },
+      "100": {
+        "value": "#f1f5f9",
+        "type": "color"
+      },
+      "200": {
+        "value": "#e2e8f0",
+        "type": "color"
+      },
+      "300": {
+        "value": "#cbd5e1",
+        "type": "color"
+      },
+      "400": {
+        "value": "#94a3b8",
+        "type": "color"
+      },
+      "500": {
+        "value": "#64748b",
+        "type": "color"
+      },
+      "600": {
+        "value": "#475569",
+        "type": "color"
+      },
+      "700": {
+        "value": "#334155",
+        "type": "color"
+      },
+      "800": {
+        "value": "#1e293b",
+        "type": "color"
+      },
+      "900": {
+        "value": "#0f172a",
+        "type": "color"
+      }
+    },
+    "white": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "black": {
+      "value": "#000000",
+      "type": "color"
+    }
+  },
+  "spacing": {
+    "xs": {
+      "value": "4",
+      "type": "spacing",
+      "description": "0.25rem - 最小間距"
+    },
+    "sm": {
+      "value": "8",
+      "type": "spacing",
+      "description": "0.5rem - 小間距"
+    },
+    "md": {
+      "value": "16",
+      "type": "spacing",
+      "description": "⭐ 1rem - 標準間距"
+    },
+    "lg": {
+      "value": "24",
+      "type": "spacing",
+      "description": "1.5rem - 大間距"
+    },
+    "xl": {
+      "value": "32",
+      "type": "spacing",
+      "description": "2rem - 超大間距"
+    },
+    "2xl": {
+      "value": "48",
+      "type": "spacing",
+      "description": "3rem - Section 間距"
+    },
+    "3xl": {
+      "value": "64",
+      "type": "spacing",
+      "description": "4rem - 頁面間距"
+    }
+  },
+  "borderRadius": {
+    "none": {
+      "value": "0",
+      "type": "borderRadius"
+    },
+    "sm": {
+      "value": "6",
+      "type": "borderRadius",
+      "description": "小元素"
+    },
+    "md": {
+      "value": "8",
+      "type": "borderRadius",
+      "description": "輸入框"
+    },
+    "lg": {
+      "value": "12",
+      "type": "borderRadius",
+      "description": "小卡片"
+    },
+    "xl": {
+      "value": "16",
+      "type": "borderRadius",
+      "description": "中卡片"
+    },
+    "2xl": {
+      "value": "24",
+      "type": "borderRadius",
+      "description": "⭐ 大卡片"
+    },
+    "3xl": {
+      "value": "28",
+      "type": "borderRadius",
+      "description": "iOS Icon 標準"
+    },
+    "full": {
+      "value": "999",
+      "type": "borderRadius",
+      "description": "⭐ 完全圓角（按鈕、頭像）"
+    }
+  },
+  "fontFamilies": {
+    "display": {
+      "value": "SF Pro Display, -apple-system, Roboto, system-ui, sans-serif",
+      "type": "fontFamilies",
+      "description": "⭐ 標題字體"
+    },
+    "text": {
+      "value": "SF Pro Text, -apple-system, Roboto, system-ui, sans-serif",
+      "type": "fontFamilies",
+      "description": "⭐ 正文字體"
+    }
+  },
+  "fontSizes": {
+    "xs": {
+      "value": "12",
+      "type": "fontSizes",
+      "description": "輔助文字"
+    },
+    "sm": {
+      "value": "14",
+      "type": "fontSizes",
+      "description": "次要文字"
+    },
+    "base": {
+      "value": "16",
+      "type": "fontSizes",
+      "description": "⭐ 正文"
+    },
+    "lg": {
+      "value": "18",
+      "type": "fontSizes",
+      "description": "小標題"
+    },
+    "xl": {
+      "value": "20",
+      "type": "fontSizes",
+      "description": "標題"
+    },
+    "2xl": {
+      "value": "24",
+      "type": "fontSizes",
+      "description": "大標題"
+    },
+    "3xl": {
+      "value": "30",
+      "type": "fontSizes",
+      "description": "頁面標題"
+    },
+    "4xl": {
+      "value": "36",
+      "type": "fontSizes",
+      "description": "Hero 標題"
+    }
+  },
+  "fontWeights": {
+    "normal": {
+      "value": "400",
+      "type": "fontWeights",
+      "description": "正文"
+    },
+    "medium": {
+      "value": "500",
+      "type": "fontWeights",
+      "description": "⭐ 按鈕、次要標題"
+    },
+    "semibold": {
+      "value": "600",
+      "type": "fontWeights",
+      "description": "標題"
+    },
+    "bold": {
+      "value": "700",
+      "type": "fontWeights",
+      "description": "重要標題"
+    }
+  },
+  "lineHeights": {
+    "tight": {
+      "value": "1.2",
+      "type": "lineHeights",
+      "description": "標題（120%）"
+    },
+    "normal": {
+      "value": "1.5",
+      "type": "lineHeights",
+      "description": "⭐ 正文（150%）"
+    },
+    "relaxed": {
+      "value": "1.75",
+      "type": "lineHeights",
+      "description": "寬鬆（175%）"
+    }
+  },
+  "letterSpacing": {
+    "tight": {
+      "value": "-0.5",
+      "type": "letterSpacing",
+      "description": "緊湊（大標題）"
+    },
+    "normal": {
+      "value": "0",
+      "type": "letterSpacing",
+      "description": "⭐ 標準"
+    },
+    "wide": {
+      "value": "0.5",
+      "type": "letterSpacing",
+      "description": "寬鬆（按鈕、標籤）"
+    }
+  },
+  "opacity": {
+    "0": {
+      "value": "0",
+      "type": "opacity"
+    },
+    "5": {
+      "value": "0.05",
+      "type": "opacity"
+    },
+    "10": {
+      "value": "0.1",
+      "type": "opacity"
+    },
+    "20": {
+      "value": "0.2",
+      "type": "opacity"
+    },
+    "30": {
+      "value": "0.3",
+      "type": "opacity"
+    },
+    "40": {
+      "value": "0.4",
+      "type": "opacity"
+    },
+    "50": {
+      "value": "0.5",
+      "type": "opacity"
+    },
+    "60": {
+      "value": "0.6",
+      "type": "opacity"
+    },
+    "70": {
+      "value": "0.7",
+      "type": "opacity"
+    },
+    "80": {
+      "value": "0.8",
+      "type": "opacity"
+    },
+    "90": {
+      "value": "0.9",
+      "type": "opacity"
+    },
+    "100": {
+      "value": "1",
+      "type": "opacity"
+    }
+  },
+  "shadows": {
+    "sm": {
+      "value": {
+        "x": "0",
+        "y": "1",
+        "blur": "2",
+        "spread": "0",
+        "color": "rgba(0, 0, 0, 0.05)"
+      },
+      "type": "boxShadow"
+    },
+    "md": {
+      "value": {
+        "x": "0",
+        "y": "4",
+        "blur": "6",
+        "spread": "-1",
+        "color": "rgba(0, 0, 0, 0.1)"
+      },
+      "type": "boxShadow"
+    },
+    "lg": {
+      "value": {
+        "x": "0",
+        "y": "10",
+        "blur": "15",
+        "spread": "-3",
+        "color": "rgba(0, 0, 0, 0.1)"
+      },
+      "type": "boxShadow",
+      "description": "⭐ 標準陰影"
+    },
+    "xl": {
+      "value": {
+        "x": "0",
+        "y": "20",
+        "blur": "25",
+        "spread": "-5",
+        "color": "rgba(0, 0, 0, 0.1)"
+      },
+      "type": "boxShadow"
+    },
+    "2xl": {
+      "value": {
+        "x": "0",
+        "y": "25",
+        "blur": "50",
+        "spread": "-12",
+        "color": "rgba(0, 0, 0, 0.25)"
+      },
+      "type": "boxShadow"
+    },
+    "glow-purple": {
+      "value": {
+        "x": "0",
+        "y": "0",
+        "blur": "30",
+        "spread": "0",
+        "color": "rgba(139, 92, 246, 0.5)"
+      },
+      "type": "boxShadow",
+      "description": "⭐ 紫色發光效果"
+    },
+    "glow-pink": {
+      "value": {
+        "x": "0",
+        "y": "0",
+        "blur": "30",
+        "spread": "0",
+        "color": "rgba(217, 70, 239, 0.5)"
+      },
+      "type": "boxShadow",
+      "description": "粉色發光效果"
+    },
+    "glow-cyan": {
+      "value": {
+        "x": "0",
+        "y": "0",
+        "blur": "30",
+        "spread": "0",
+        "color": "rgba(34, 211, 238, 0.5)"
+      },
+      "type": "boxShadow",
+      "description": "青色發光效果"
+    }
+  },
+  "typography": {
+    "display-1": {
+      "value": {
+        "fontFamily": "{fontFamilies.display}",
+        "fontWeight": "{fontWeights.bold}",
+        "fontSize": "{fontSizes.4xl}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.tight}"
+      },
+      "type": "typography",
+      "description": "⭐ Hero 大標題 - 36px/Bold"
+    },
+    "display-2": {
+      "value": {
+        "fontFamily": "{fontFamilies.display}",
+        "fontWeight": "{fontWeights.bold}",
+        "fontSize": "{fontSizes.3xl}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.tight}"
+      },
+      "type": "typography",
+      "description": "⭐ 頁面主標題 - 30px/Bold"
+    },
+    "heading-1": {
+      "value": {
+        "fontFamily": "{fontFamilies.display}",
+        "fontWeight": "{fontWeights.semibold}",
+        "fontSize": "{fontSizes.2xl}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "⭐ Section 標題 - 24px/Semibold"
+    },
+    "heading-2": {
+      "value": {
+        "fontFamily": "{fontFamilies.display}",
+        "fontWeight": "{fontWeights.semibold}",
+        "fontSize": "{fontSizes.xl}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "小標題 - 20px/Semibold"
+    },
+    "heading-3": {
+      "value": {
+        "fontFamily": "{fontFamilies.display}",
+        "fontWeight": "{fontWeights.semibold}",
+        "fontSize": "{fontSizes.lg}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "卡片標題 - 18px/Semibold"
+    },
+    "body-large": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.normal}",
+        "fontSize": "{fontSizes.lg}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "大正文 - 18px/Regular"
+    },
+    "body-regular": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.normal}",
+        "fontSize": "{fontSizes.base}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "⭐ 標準正文 - 16px/Regular"
+    },
+    "body-medium": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.medium}",
+        "fontSize": "{fontSizes.base}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "⭐ 強調正文 - 16px/Medium"
+    },
+    "body-semibold": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.semibold}",
+        "fontSize": "{fontSizes.base}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "重點正文 - 16px/Semibold"
+    },
+    "body-small": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.normal}",
+        "fontSize": "{fontSizes.sm}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "次要文字 - 14px/Regular"
+    },
+    "body-small-medium": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.medium}",
+        "fontSize": "{fontSizes.sm}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "強調次要文字 - 14px/Medium"
+    },
+    "caption": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.normal}",
+        "fontSize": "{fontSizes.xs}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "⭐ 輔助說明文字 - 12px/Regular"
+    },
+    "caption-medium": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.medium}",
+        "fontSize": "{fontSizes.xs}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "強調輔助文字 - 12px/Medium"
+    },
+    "button-large": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.semibold}",
+        "fontSize": "{fontSizes.lg}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.wide}"
+      },
+      "type": "typography",
+      "description": "大按鈕文字 - 18px/Semibold"
+    },
+    "button-medium": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.medium}",
+        "fontSize": "{fontSizes.base}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.wide}"
+      },
+      "type": "typography",
+      "description": "⭐ 標準按鈕文字 - 16px/Medium"
+    },
+    "button-small": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.medium}",
+        "fontSize": "{fontSizes.sm}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.wide}"
+      },
+      "type": "typography",
+      "description": "小按鈕文字 - 14px/Medium"
+    },
+    "label": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.medium}",
+        "fontSize": "{fontSizes.sm}",
+        "lineHeight": "{lineHeights.tight}",
+        "letterSpacing": "{letterSpacing.wide}"
+      },
+      "type": "typography",
+      "description": "⭐ 表單標籤 - 14px/Medium"
+    },
+    "input": {
+      "value": {
+        "fontFamily": "{fontFamilies.text}",
+        "fontWeight": "{fontWeights.normal}",
+        "fontSize": "{fontSizes.base}",
+        "lineHeight": "{lineHeights.normal}",
+        "letterSpacing": "{letterSpacing.normal}"
+      },
+      "type": "typography",
+      "description": "⭐ 輸入框文字 - 16px/Regular"
+    }
+  },
+  "components": {
+    "button": {
+      "primary": {
+        "padding": {
+          "small": {
+            "value": "{spacing.sm} {spacing.md}",
+            "type": "spacing",
+            "description": "8px × 16px"
+          },
+          "medium": {
+            "value": "{spacing.md} {spacing.lg}",
+            "type": "spacing",
+            "description": "⭐ 16px × 24px (推薦)"
+          },
+          "large": {
+            "value": "12px {spacing.xl}",
+            "type": "spacing",
+            "description": "12px × 32px"
+          }
+        },
+        "borderRadius": {
+          "value": "{borderRadius.full}",
+          "type": "borderRadius"
+        },
+        "background": {
+          "value": "linear-gradient(135deg, {colors.primary.500} 0%, {colors.primary.700} 50%, {colors.primary.800} 100%)",
+          "type": "color",
+          "description": "主要漸層"
+        },
+        "textColor": {
+          "value": "{colors.white}",
+          "type": "color"
+        },
+        "shadow": {
+          "value": "{shadows.md}",
+          "type": "boxShadow"
+        }
+      },
+      "secondary": {
+        "background": {
+          "value": "linear-gradient(135deg, {colors.accent.400} 0%, {colors.accent.500} 50%, {colors.accent.600} 100%)",
+          "type": "color",
+          "description": "強調漸層"
+        }
+      },
+      "outline": {
+        "background": {
+          "value": "transparent",
+          "type": "color"
+        },
+        "borderColor": {
+          "value": "{colors.primary.500}",
+          "type": "color"
+        },
+        "borderWidth": {
+          "value": "2",
+          "type": "borderWidth"
+        },
+        "textColor": {
+          "value": "{colors.primary.500}",
+          "type": "color"
+        }
+      }
+    },
+    "card": {
+      "padding": {
+        "small": {
+          "value": "{spacing.md}",
+          "type": "spacing",
+          "description": "16px"
+        },
+        "medium": {
+          "value": "{spacing.lg}",
+          "type": "spacing",
+          "description": "⭐ 24px (推薦)"
+        },
+        "large": {
+          "value": "{spacing.xl}",
+          "type": "spacing",
+          "description": "32px"
+        }
+      },
+      "borderRadius": {
+        "value": "{borderRadius.2xl}",
+        "type": "borderRadius",
+        "description": "24px"
+      },
+      "background": {
+        "value": "{colors.white}",
+        "type": "color"
+      },
+      "shadow": {
+        "value": "{shadows.lg}",
+        "type": "boxShadow"
+      }
+    },
+    "input": {
+      "padding": {
+        "value": "12px {spacing.md}",
+        "type": "spacing",
+        "description": "12px × 16px"
+      },
+      "borderRadius": {
+        "value": "{borderRadius.lg}",
+        "type": "borderRadius",
+        "description": "12px"
+      },
+      "borderColor": {
+        "default": {
+          "value": "{colors.neutral.200}",
+          "type": "color"
+        },
+        "focus": {
+          "value": "{colors.primary.500}",
+          "type": "color"
+        },
+        "error": {
+          "value": "#ef4444",
+          "type": "color"
+        }
+      },
+      "borderWidth": {
+        "value": "2",
+        "type": "borderWidth"
+      }
+    }
+  }
+}
