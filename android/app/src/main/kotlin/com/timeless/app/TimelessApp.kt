@@ -1,10 +1,12 @@
 package com.timeless.app
 
 import android.app.Application
+import com.timeless.app.core.config.AppConfig
 
 class TimelessApp : Application() {
     override fun onCreate() {
         super.onCreate()
-        // Initialize any app-wide dependencies here
+        // Initialize app configuration
+        AppConfig.init(this)
     }
 }
