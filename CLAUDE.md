@@ -20,6 +20,31 @@ Multi-platform robotics project with infrastructure, backend API, and mobile cli
 - Include tests for new functionality
 - Update documentation when behavior changes
 
+## Documentation Standards
+
+All Markdown files must include:
+1. **One-line summary** - Brief description at the top after the title
+2. **Table of Contents** - Linked menu to navigate sections
+3. **Horizontal separator** - Use `---` after ToC before main content
+
+Example structure:
+```markdown
+# Document Title
+
+One-line summary of the document's purpose.
+
+## Table of Contents
+
+- [Section 1](#section-1)
+- [Section 2](#section-2)
+- [Section 3](#section-3)
+
+---
+
+## Section 1
+...
+```
+
 ## AWS IAM 權限規範 (必須遵循)
 
 所有 AWS 權限設定必須遵循 **User → Role → Policy** 架構：
@@ -61,42 +86,116 @@ IAM User (透過 assume role 獲取權限)
 - TypeScript 5.x (Frontend), HCL (Terraform) + React 18.3, Vite 6.x, AWS Amplify (Cognito SDK), Tailwind CSS 4.x (003-cognito-gmail-login)
 - AWS Cognito User Pool (user data), Browser localStorage/cookies (session tokens) (003-cognito-gmail-login)
 - Go 1.22+ + net/http (標準庫) (004-health-check-api)
+- YAML (Kubernetes manifests), Dockerfile + kubectl, Docker, AWS ECR (005-k8s-api-deploy)
+- Go 1.22+ + github.com/golang-jwt/jwt/v5 (JWT validation), Swift 5.9+ (iOS), Kotlin 1.9+ (Android) (006-cognito-app-auth)
+- Keychain (iOS), EncryptedSharedPreferences (Android), Cognito Access Token (006-cognito-app-auth)
 
 ## GitHub Issue Workflow (實作時必須遵循)
 
 當實作 speckit 的 tasks 時，必須遵循以下流程：
 
-### 開始實作時
-1. 將 Issue 狀態改為 `In Progress`
-2. 在 Issue 上 comment: "開始實作"
+### 核心原則
 
-### 實作過程中
-- 每完成一個 task，在 Issue 上 comment 說明做了什麼
-- 附上相關的 code snippet 或 file path
-- 使用 `gh issue comment` 指令
+1. **每個 Issue 都有自己的 PR** - 一對一關係
+2. **每個 PR 必須可獨立運作** - 不依賴未合併的其他 PR
+3. **PR 不超過 500 行** - 超過時拆分成多個 PR
+4. **使用 GitHub 的 "Create branch" 功能** - 從 Issue 的 Development section 建立分支
+
+### 開始實作時
+
+1. 在 Issue 的 Development section 點擊 "Create a branch"
+   - Branch 名稱格式: `<issue-number>-<short-description>`
+   - 例如: `17-setup-phase-1`
+2. 切換到新建立的分支
+3. 將 Issue 狀態改為 `In Progress`
+4. 在 Issue 上 comment: "開始實作"
+
+```bash
+# 切換到 Issue 建立的分支
+git fetch origin
+git checkout <issue-number>-<short-description>
+```
+
+### 實作過程中 - Comment 規範 (必須遵循!)
+
+每個實作步驟都要在 Issue 上留下 comment，包含：
+
+1. **做了什麼** - 具體的改動描述
+2. **為什麼這樣做** - 技術決策的原因
+3. **相關檔案** - file path 或 code snippet
+
+Comment 範例：
+```markdown
+### T001: Add JWT dependency
+
+**做了什麼**:
+新增 `github.com/golang-jwt/jwt/v5` 到 go.mod
+
+**為什麼**:
+選擇這個 library 因為：
+- 是 Go 社群最廣泛使用的 JWT library
+- 支援 RS256 (Cognito 使用的演算法)
+- 有完整的 claims 驗證功能
+
+**檔案**: `api/go.mod`
+```
 
 ### 實作完成後
+
 1. 確認所有 tasks 都完成
-2. 執行驗證步驟並記錄結果
-3. 將 Issue 狀態改為 `In Review`
-4. 將 Issue assign 給 `ava`
-5. 在 Issue 上 comment: "實作完成，請 review"
+2. 執行驗證步驟並記錄結果到 comment
+3. 建立 PR (使用下方指令)
+4. 將 Issue 狀態改為 `In Review`
+5. 將 Issue assign 給 `ava`
 
 ### PR 規範
-- PR title 包含 Issue 編號: `[#123] 實作描述`
-- PR body 連結到對應的 Issue: `Closes #123`
-- 每個 PR 不超過 500 行
+
+| 規則 | 說明 |
+|------|------|
+| Title 格式 | `[#<ISSUE_NO>] <short description>` |
+| Body | 連結到 Issue: `Closes #<ISSUE_NO>` |
+| 行數限制 | 不超過 500 行 |
+| 獨立性 | 每個 PR 必須可獨立運作、編譯、測試 |
+
+**超過 500 行時**:
+1. 拆分成多個 PR
+2. 每個 PR 都連結到同一個 Issue
+3. PR title 加上 part 編號: `[#17] Setup Phase 1 - Part 1/3`
+4. 確保每個 part 都可獨立運作
 
 ### GitHub CLI 指令
+
 ```bash
-# Comment on issue
-gh issue comment <NUMBER> --repo avachen2005/avarobotics --body "內容"
+# Comment on issue (實作過程中使用)
+gh issue comment <NUMBER> --repo avachen2005/avarobotics --body "$(cat <<'EOF'
+### T001: Task 名稱
+
+**做了什麼**: 描述改動
+
+**為什麼**: 解釋原因
+
+**檔案**: `path/to/file.go`
+EOF
+)"
 
 # Assign issue
 gh issue edit <NUMBER> --repo avachen2005/avarobotics --add-assignee avachen2005
 
 # Create PR linking issue
-gh pr create --title "[#123] PR 標題" --body "Closes #123"
+gh pr create --title "[#<NUMBER>] PR 標題" --body "$(cat <<'EOF'
+## Summary
+簡述這個 PR 做了什麼
+
+## Changes
+- 改動 1
+- 改動 2
+
+## Testing
+如何測試這個 PR
+
+Closes #<NUMBER>
+EOF
+)"
 ```
 
 ### Project Board
@@ -136,6 +235,7 @@ gh project item-list 4 --owner avachen2005 --format json | jq '.items[] | select
 | #8 | Phase 7: Polish | PVTI_lAHOAHxvcs4BN-akzgknPFE |
 
 ## Recent Changes
+- 006-cognito-app-auth: Added Go JWT validation (golang-jwt/jwt/v5), Swift 5.9+ (iOS), Kotlin 1.9+ (Android), secure token storage
+- 005-k8s-api-deploy: Added YAML (Kubernetes manifests), Dockerfile + kubectl, Docker, AWS ECR
 - 004-health-check-api: Added Go 1.22+ + net/http (標準庫)
 - 003-cognito-gmail-login: Added TypeScript 5.x (Frontend), HCL (Terraform) + React 18.3, Vite 6.x, AWS Amplify (Cognito SDK), Tailwind CSS 4.x
-- 002-aws-iam-permissions: Added Terraform >= 1.5.0 (HCL) + AWS Provider ~> 5.0
