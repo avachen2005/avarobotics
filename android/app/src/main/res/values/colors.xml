@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary (科技紫) -->
+    <color name="primary_500">#8B5CF6</color>
+    <color name="primary_600">#7C3AED</color>
+
+    <!-- Accent (霓虹粉紫) -->
+    <color name="accent_400">#E879F9</color>
+
+    <!-- Secondary (科技青) -->
+    <color name="secondary_400">#22D3EE</color>
+
+    <!-- Background -->
+    <color name="background_dark">#0A0A0F</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FAFAFA</color>
+</resources>
