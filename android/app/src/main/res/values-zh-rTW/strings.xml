@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Timeless</string>
+    <string name="slogan">在你的永恆旅程中前進</string>
+
+    <!-- Login -->
+    <string name="sign_in_google">使用 Google 登入</string>
+    <string name="sign_in_apple">使用 Apple 登入</string>
+    <string name="terms_notice">繼續即表示您同意我們的條款和隱私政策</string>
+
+    <!-- Common -->
+    <string name="ok">確定</string>
+    <string name="cancel">取消</string>
+    <string name="error">錯誤</string>
+</resources>
