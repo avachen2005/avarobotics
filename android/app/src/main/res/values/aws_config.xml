@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- AWS Cognito Configuration -->
+    <!-- Update these values from your Terraform output or AWS Console -->
+
+    <string name="cognito_region">ap-northeast-1</string>
+    <string name="cognito_user_pool_id">ap-northeast-1_xxx</string>
+    <string name="cognito_client_id">xxxxxxxxxxxxxxxxxx</string>
+    <string name="cognito_domain">your-domain.auth.ap-northeast-1.amazoncognito.com</string>
+
+    <!-- OAuth URLs -->
+    <string name="cognito_callback_url">timeless://callback</string>
+    <string name="cognito_signout_url">timeless://signout</string>
+
+    <!-- API Configuration -->
+    <string name="api_base_url_debug">http://10.0.2.2:8080</string>
+    <string name="api_base_url_release">https://api.timeless.app</string>
+    <string name="api_version">v1</string>
+</resources>
