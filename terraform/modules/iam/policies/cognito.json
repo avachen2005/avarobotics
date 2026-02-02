@@ -1,0 +1,64 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "CognitoUserPoolManagement",
+      "Effect": "Allow",
+      "Action": [
+        "cognito-idp:CreateUserPool",
+        "cognito-idp:DeleteUserPool",
+        "cognito-idp:DescribeUserPool",
+        "cognito-idp:UpdateUserPool",
+        "cognito-idp:ListUserPools",
+        "cognito-idp:GetUserPoolMfaConfig",
+        "cognito-idp:SetUserPoolMfaConfig"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CognitoUserPoolClientManagement",
+      "Effect": "Allow",
+      "Action": [
+        "cognito-idp:CreateUserPoolClient",
+        "cognito-idp:DeleteUserPoolClient",
+        "cognito-idp:DescribeUserPoolClient",
+        "cognito-idp:UpdateUserPoolClient",
+        "cognito-idp:ListUserPoolClients"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CognitoUserPoolDomainManagement",
+      "Effect": "Allow",
+      "Action": [
+        "cognito-idp:CreateUserPoolDomain",
+        "cognito-idp:DeleteUserPoolDomain",
+        "cognito-idp:DescribeUserPoolDomain",
+        "cognito-idp:UpdateUserPoolDomain"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CognitoIdentityProviderManagement",
+      "Effect": "Allow",
+      "Action": [
+        "cognito-idp:CreateIdentityProvider",
+        "cognito-idp:DeleteIdentityProvider",
+        "cognito-idp:DescribeIdentityProvider",
+        "cognito-idp:UpdateIdentityProvider",
+        "cognito-idp:ListIdentityProviders"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CognitoTagging",
+      "Effect": "Allow",
+      "Action": [
+        "cognito-idp:TagResource",
+        "cognito-idp:UntagResource",
+        "cognito-idp:ListTagsForResource"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
