@@ -13,10 +13,6 @@
 .vscode/
 *.iml
 
-# Claude Code
-.claude/
-.specify/
-
 # Environment
 .env
 .env.*
