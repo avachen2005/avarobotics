@@ -77,6 +77,20 @@ func IAMVars() map[string]interface{} {
 	}
 }
 
+// EcsVars returns test variables for the ECS module.
+// Uses placeholder IDs valid for terraform plan (not apply).
+func EcsVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":        DefaultEnvironment,
+		"project_name":       DefaultProjectName,
+		"ecr_repository_url": "123456789012.dkr.ecr.ap-northeast-1.amazonaws.com/dev-avarobotics-api",
+		"target_group_arn":   "arn:aws:elasticloadbalancing:ap-northeast-1:123456789012:targetgroup/dev-avarobotics-tg/0000000000000000",
+		"subnet_ids":         []string{"subnet-00000000000000001", "subnet-00000000000000002"},
+		"security_group_ids": []string{"sg-00000000000000001"},
+		"log_group_name":     "/ecs/dev-avarobotics-api",
+	}
+}
+
 // CodebuildVars returns test variables for the codebuild module.
 func CodebuildVars() map[string]interface{} {
 	return map[string]interface{}{

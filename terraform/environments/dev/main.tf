@@ -165,6 +165,24 @@ module "codebuild" {
 }
 
 # =============================================================================
+# ECS Module
+# =============================================================================
+
+module "ecs" {
+  source = "../../modules/ecs"
+
+  environment        = var.environment
+  project_name       = var.project_name
+  ecr_repository_url = module.codebuild.ecr_repository_url
+  target_group_arn   = module.loadbalancing.target_group_arn
+  subnet_ids         = module.networking.public_subnet_ids
+  security_group_ids = [module.security.app_security_group_id]
+  log_group_name     = module.logging.api_log_group_name
+
+  tags = var.additional_tags
+}
+
+# =============================================================================
 # Cognito Module
 # =============================================================================
 
