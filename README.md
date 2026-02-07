@@ -5,6 +5,7 @@ A multi-platform robotics project with infrastructure, backend API, and mobile c
 ## Table of Contents
 
 - [Overview](#overview)
+- [CI/CD Pipeline](#cicd-pipeline)
 - [Repository Structure](#repository-structure)
 - [Directory Details](#directory-details)
 - [Getting Started](#getting-started)
@@ -19,6 +20,26 @@ Ava Robotics is a multi-platform robotics solution that combines cloud infrastru
 - **Backend**: Go-based API services handling business logic and data processing
 - **Mobile**: Native applications for both Android (Kotlin) and iOS (Swift)
 - **Web**: React-based frontend for browser access
+
+## CI/CD Pipeline
+
+Every push to a non-main branch and every pull request triggers the CI pipeline (`.github/workflows/ci.yml`). The pipeline uses path-based filtering to only run relevant checks.
+
+### How It Works
+
+1. **Path detection** — `dorny/paths-filter` identifies which directories (`api/`, `terraform/`, `web/`) have changes
+2. **Conditional jobs** — Only the relevant lint/test jobs run based on detected changes
+3. **Status wrappers** — Each component has a wrapper job that always reports a result, enabling required status checks without blocking unrelated PRs
+
+### Checks
+
+| Status Check | Triggers When | What It Runs |
+|--------------|---------------|--------------|
+| `Go CI` | `api/` changes | `golangci-lint` + `go test ./...` |
+| `Terraform CI` | `terraform/` changes | `make test-validate` (terraform validate + fmt check) |
+| `Web CI` | `web/` changes | `tsc --noEmit` + `npm run build` |
+
+All three status checks are **required** to merge a PR. If a component has no changes, its status check passes automatically (skipped).
 
 ## Repository Structure
 

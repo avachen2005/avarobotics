@@ -1,0 +1,174 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # ============================================================
+  # Path Filter — detect which directories have changes
+  # ============================================================
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      api: ${{ steps.filter.outputs.api }}
+      terraform: ${{ steps.filter.outputs.terraform }}
+      web: ${{ steps.filter.outputs.web }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            api:
+              - 'api/**'
+            terraform:
+              - 'terraform/**'
+            web:
+              - 'web/**'
+
+  # ============================================================
+  # Go API — Lint
+  # ============================================================
+  go-lint:
+    needs: changes
+    if: needs.changes.outputs.api == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - uses: golangci/golangci-lint-action@v7
+        with:
+          working-directory: api
+
+  # ============================================================
+  # Go API — Test
+  # ============================================================
+  go-test:
+    needs: changes
+    if: needs.changes.outputs.api == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - name: Run Go tests
+        working-directory: api
+        run: go test -v ./...
+
+  # ============================================================
+  # Go CI — Status wrapper (required status check)
+  # ============================================================
+  go-ci-status:
+    name: Go CI
+    needs: [changes, go-lint, go-test]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Go CI status
+        run: |
+          if [[ "${{ needs.changes.outputs.api }}" != "true" ]]; then
+            echo "API not changed — skipping"
+            exit 0
+          fi
+          if [[ "${{ needs.go-lint.result }}" == "success" && "${{ needs.go-test.result }}" == "success" ]]; then
+            echo "Go CI passed"
+            exit 0
+          fi
+          echo "Go CI failed"
+          echo "  go-lint: ${{ needs.go-lint.result }}"
+          echo "  go-test: ${{ needs.go-test.result }}"
+          exit 1
+
+  # ============================================================
+  # Terraform — Validate & Format Check
+  # ============================================================
+  terraform-validate:
+    needs: changes
+    if: needs.changes.outputs.terraform == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+      - uses: hashicorp/setup-terraform@v3
+      - name: Run Terraform validate
+        run: cd terraform/test && make test-validate
+
+  # ============================================================
+  # Terraform CI — Status wrapper (required status check)
+  # ============================================================
+  terraform-ci-status:
+    name: Terraform CI
+    needs: [changes, terraform-validate]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Terraform CI status
+        run: |
+          if [[ "${{ needs.changes.outputs.terraform }}" != "true" ]]; then
+            echo "Terraform not changed — skipping"
+            exit 0
+          fi
+          if [[ "${{ needs.terraform-validate.result }}" == "success" ]]; then
+            echo "Terraform CI passed"
+            exit 0
+          fi
+          echo "Terraform CI failed"
+          echo "  terraform-validate: ${{ needs.terraform-validate.result }}"
+          exit 1
+
+  # ============================================================
+  # Web Frontend — Type Check & Build
+  # ============================================================
+  web-check:
+    needs: changes
+    if: needs.changes.outputs.web == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+      - name: TypeScript type check
+        working-directory: web
+        run: npx tsc --noEmit
+      - name: Build
+        working-directory: web
+        run: npm run build
+
+  # ============================================================
+  # Web CI — Status wrapper (required status check)
+  # ============================================================
+  web-ci-status:
+    name: Web CI
+    needs: [changes, web-check]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Web CI status
+        run: |
+          if [[ "${{ needs.changes.outputs.web }}" != "true" ]]; then
+            echo "Web not changed — skipping"
+            exit 0
+          fi
+          if [[ "${{ needs.web-check.result }}" == "success" ]]; then
+            echo "Web CI passed"
+            exit 0
+          fi
+          echo "Web CI failed"
+          echo "  web-check: ${{ needs.web-check.result }}"
+          exit 1
