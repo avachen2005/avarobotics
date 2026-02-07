@@ -37,11 +37,7 @@ func TestTerraformValidateAllModules(t *testing.T) {
 			})
 
 			// init with -backend=false so no remote state is needed
-			terraform.Init(t, &terraform.Options{
-				TerraformDir: modulePath,
-				NoColor:      true,
-				BackendConfig: map[string]interface{}{},
-			})
+			terraform.RunTerraformCommand(t, terraformOptions, "init", "-backend=false")
 			terraform.Validate(t, terraformOptions)
 		})
 	}
