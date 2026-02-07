@@ -1,11 +1,15 @@
+# Create App Icon Design
 
-  # Create App Icon Design
+Code bundle for the Ava Robotics web frontend, based on the [Figma design](https://www.figma.com/design/RRdSlrvRlq5HWjzewwaHWU/Create-App-Icon-Design).
 
-  This is a code bundle for Create App Icon Design. The original project is available at https://www.figma.com/design/RRdSlrvRlq5HWjzewwaHWU/Create-App-Icon-Design.
+## Table of Contents
 
-  ## Running the code
+- [Running the code](#running-the-code)
 
-  Run `npm i` to install the dependencies.
+---
 
-  Run `npm run dev` to start the development server.
-  
+## Running the code
+
+Run `npm i` to install the dependencies.
+
+Run `npm run dev` to start the development server.

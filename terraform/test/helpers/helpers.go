@@ -1,0 +1,78 @@
+// Package helpers provides shared constants and variable builders for Terratest tests.
+package helpers
+
+const (
+	DefaultAWSRegion   = "ap-northeast-1"
+	DefaultEnvironment = "dev"
+	DefaultProjectName = "avarobotics"
+	TestCIDR           = "10.99.0.0/16"
+	TestSubnetCIDR1    = "10.99.1.0/24"
+	TestSubnetCIDR2    = "10.99.2.0/24"
+	TestAZ1            = "ap-northeast-1a"
+	TestAZ2            = "ap-northeast-1c"
+)
+
+// NetworkingVars returns test variables for the networking module.
+func NetworkingVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":         DefaultEnvironment,
+		"project_name":        DefaultProjectName,
+		"vpc_cidr":            TestCIDR,
+		"public_subnet_cidrs": []string{TestSubnetCIDR1, TestSubnetCIDR2},
+		"availability_zones":  []string{TestAZ1, TestAZ2},
+	}
+}
+
+// SecurityVars returns test variables for the security module.
+// Uses placeholder IDs valid for terraform plan (not apply).
+func SecurityVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":       DefaultEnvironment,
+		"project_name":      DefaultProjectName,
+		"vpc_id":            "vpc-00000000000000000",
+		"public_subnet_ids": []string{"subnet-00000000000000001", "subnet-00000000000000002"},
+		"alb_ingress_ports": []int{80},
+		"app_port":          8080,
+	}
+}
+
+// StorageVars returns test variables for the storage module.
+func StorageVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":   DefaultEnvironment,
+		"project_name":  "terratest-" + DefaultProjectName,
+		"force_destroy": true,
+	}
+}
+
+// LoggingVars returns test variables for the logging module.
+func LoggingVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":        DefaultEnvironment,
+		"project_name":       DefaultProjectName,
+		"log_retention_days": 7,
+		"create_vpc_flow_logs": false,
+	}
+}
+
+// LoadbalancingVars returns test variables for the loadbalancing module.
+// Uses placeholder IDs valid for terraform plan (not apply).
+func LoadbalancingVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":        DefaultEnvironment,
+		"project_name":       DefaultProjectName,
+		"vpc_id":             "vpc-00000000000000000",
+		"public_subnet_ids":  []string{"subnet-00000000000000001", "subnet-00000000000000002"},
+		"security_group_ids": []string{"sg-00000000000000001"},
+		"enable_access_logs": false,
+	}
+}
+
+// IAMVars returns test variables for the IAM module.
+func IAMVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":   DefaultEnvironment,
+		"project_name":  DefaultProjectName,
+		"allowed_users": []string{"arn:aws:iam::123456789012:user/test_user"},
+	}
+}
