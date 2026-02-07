@@ -119,6 +119,28 @@ After applying, key outputs include:
 - `target_group_arn` - For registering compute targets
 - `api_log_group_name` - CloudWatch log group for application
 
+## Test Coverage
+
+Tests live in `test/` using [Terratest](https://terratest.gruntwork.io/). See [test/README.md](test/README.md) for full details.
+
+| Module | Validate | Format | Plan | Integration |
+|--------|----------|--------|------|-------------|
+| networking | Yes | Yes | Yes | Yes |
+| security | Yes | Yes | Yes | No |
+| storage | Yes | Yes | Yes | No |
+| logging | Yes | Yes | Yes | Yes |
+| loadbalancing | Yes | Yes | Yes | No |
+| iam | Yes | Yes | Yes | No |
+| cognito | Yes | Yes | No | No |
+
+```bash
+cd terraform/test
+
+make test-validate      # No AWS creds needed
+make test-plan          # Needs AWS creds, free
+make test-integration   # Deploys real resources
+```
+
 ## Development Notes
 
 - All modules are validated with `terraform validate`

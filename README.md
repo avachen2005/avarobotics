@@ -6,6 +6,7 @@ A multi-platform robotics project with infrastructure, backend API, and mobile c
 
 - [Overview](#overview)
 - [CI/CD Pipeline](#cicd-pipeline)
+- [Test Coverage](#test-coverage)
 - [Repository Structure](#repository-structure)
 - [Directory Details](#directory-details)
 - [Getting Started](#getting-started)
@@ -40,6 +41,26 @@ Every push to a non-main branch and every pull request triggers the CI pipeline 
 | `Web CI` | `web/` changes | `tsc --noEmit` + `npm run build` |
 
 All three status checks are **required** to merge a PR. If a component has no changes, its status check passes automatically (skipped).
+
+## Test Coverage
+
+### Go API
+
+| Type | Command | Description |
+|------|---------|-------------|
+| Lint | `golangci-lint run` | Static analysis via golangci-lint v2 |
+| Unit | `go test ./...` | All Go unit tests |
+
+### Terraform (Terratest)
+
+See [terraform/README.md](terraform/README.md#test-coverage) for the full module coverage matrix.
+
+### Web Frontend
+
+| Type | Command | Description |
+|------|---------|-------------|
+| Type check | `npx tsc --noEmit` | TypeScript type validation |
+| Build | `npm run build` | Production build verification |
 
 ## Repository Structure
 
