@@ -1,0 +1,36 @@
+name: API Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "api/**"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  trigger-build:
+    name: Trigger CodeBuild
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/GitHubActionsCIRole
+          role-session-name: github-actions-${{ github.run_id }}
+          aws-region: us-east-1
+
+      - name: Trigger CodeBuild
+        uses: aws-actions/aws-codebuild-run-build@v1
+        with:
+          project-name: avarobotics-api-build
+          env-vars-for-codebuild: |
+            GIT_COMMIT_SHA,
+            IMAGE_TAG
+        env:
+          GIT_COMMIT_SHA: ${{ github.sha }}
+          IMAGE_TAG: ${{ github.sha }}
