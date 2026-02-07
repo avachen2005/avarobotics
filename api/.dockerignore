@@ -1,0 +1,8 @@
+.git
+*_test.go
+README.md
+bin/
+vendor/
+coverage.out
+coverage.html
+.DS_Store

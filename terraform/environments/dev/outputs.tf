@@ -91,6 +91,27 @@ output "target_group_arn" {
   value       = module.loadbalancing.target_group_arn
 }
 
+# CodeBuild Outputs
+output "ecr_repository_url" {
+  description = "URL of the ECR repository"
+  value       = module.codebuild.ecr_repository_url
+}
+
+output "codebuild_project_name" {
+  description = "Name of the CodeBuild project"
+  value       = module.codebuild.codebuild_project_name
+}
+
+output "codebuild_service_role_arn" {
+  description = "ARN of the CodeBuild service IAM role"
+  value       = module.codebuild.codebuild_service_role_arn
+}
+
+output "github_oidc_role_arn" {
+  description = "ARN of the GitHub Actions OIDC IAM role"
+  value       = module.codebuild.github_oidc_role_arn
+}
+
 # Cognito Outputs
 output "cognito_user_pool_id" {
   description = "ID of the Cognito User Pool"
