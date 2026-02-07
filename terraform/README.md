@@ -2,6 +2,20 @@
 
 AWS infrastructure provisioned with Terraform for Ava Robotics API.
 
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Project Structure](#project-structure)
+- [Bootstrap](#bootstrap-first-time-setup)
+- [Usage](#usage)
+- [Modules](#modules)
+- [Outputs](#outputs)
+- [Test Coverage](#test-coverage)
+- [Development Notes](#development-notes)
+- [Related Documentation](#related-documentation)
+
+---
+
 ## Prerequisites
 
 - Terraform >= 1.5.0
