@@ -1,57 +1,61 @@
 package handler
 
 import (
-	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 )
 
 func TestHealthHandler_ReturnsOK(t *testing.T) {
-	// Create request
 	req := httptest.NewRequest(http.MethodGet, "/health", nil)
 	w := httptest.NewRecorder()
 
-	// Call handler
 	HealthHandler(w, req)
 
-	// Check status code
 	if w.Code != http.StatusOK {
 		t.Errorf("Expected status %d, got %d", http.StatusOK, w.Code)
 	}
 }
 
 func TestHealthHandler_ReturnsJSON(t *testing.T) {
-	// Create request
 	req := httptest.NewRequest(http.MethodGet, "/health", nil)
 	w := httptest.NewRecorder()
 
-	// Call handler
 	HealthHandler(w, req)
 
-	// Check content type
 	contentType := w.Header().Get("Content-Type")
 	if contentType != "application/json" {
 		t.Errorf("Expected Content-Type application/json, got %s", contentType)
 	}
 }
 
-func TestHealthHandler_ReturnsCorrectBody(t *testing.T) {
-	// Create request
+func TestHealthHandler_ReturnsEmptyJSON(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/health", nil)
 	w := httptest.NewRecorder()
 
-	// Call handler
 	HealthHandler(w, req)
 
-	// Parse response body
-	var response HealthResponse
-	if err := json.NewDecoder(w.Body).Decode(&response); err != nil {
-		t.Fatalf("Failed to decode response: %v", err)
+	expected := "{}"
+	if body := w.Body.String(); body != expected {
+		t.Errorf("Expected body %q, got %q", expected, body)
 	}
+}
 
-	// Check status field
-	if response.Status != "ok" {
-		t.Errorf("Expected status 'ok', got '%s'", response.Status)
+func TestHealthRoute_MethodNotAllowed(t *testing.T) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("GET /health", HealthHandler)
+
+	methods := []string{http.MethodPost, http.MethodPut, http.MethodDelete}
+	for _, method := range methods {
+		t.Run(method, func(t *testing.T) {
+			req := httptest.NewRequest(method, "/health", nil)
+			w := httptest.NewRecorder()
+
+			mux.ServeHTTP(w, req)
+
+			if w.Code != http.StatusMethodNotAllowed {
+				t.Errorf("%s /health: expected status %d, got %d", method, http.StatusMethodNotAllowed, w.Code)
+			}
+		})
 	}
 }
