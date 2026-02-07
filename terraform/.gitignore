@@ -23,6 +23,10 @@ terraform.rc
 *.swo
 *~
 
+# Terratest fixtures - terraform init artifacts
+test/fixtures/**/.terraform/
+test/fixtures/**/.terraform.lock.hcl
+
 # OS
 .DS_Store
 Thumbs.db
