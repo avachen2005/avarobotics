@@ -89,6 +89,7 @@ IAM User (透過 assume role 獲取權限)
 - YAML (Kubernetes manifests), Dockerfile + kubectl, Docker, AWS ECR (005-k8s-api-deploy)
 - Go 1.22+ + github.com/golang-jwt/jwt/v5 (JWT validation), Swift 5.9+ (iOS), Kotlin 1.9+ (Android) (006-cognito-app-auth)
 - Keychain (iOS), EncryptedSharedPreferences (Android), Cognito Access Token (006-cognito-app-auth)
+- YAML (GitHub Actions), Go 1.22 (API), TypeScript 5.9 (Web), HCL (Terraform) + `dorny/paths-filter@v3`, `golangci/golangci-lint-action@v7`, `hashicorp/setup-terraform@v3`, `actions/setup-go@v5`, `actions/setup-node@v4` (001-ci-lint-test)
 
 ## GitHub Issue Workflow (實作時必須遵循)
 
@@ -235,7 +236,6 @@ gh project item-list 4 --owner avachen2005 --format json | jq '.items[] | select
 | #8 | Phase 7: Polish | PVTI_lAHOAHxvcs4BN-akzgknPFE |
 
 ## Recent Changes
+- 001-ci-lint-test: Added YAML (GitHub Actions), Go 1.22 (API), TypeScript 5.9 (Web), HCL (Terraform) + `dorny/paths-filter@v3`, `golangci/golangci-lint-action@v7`, `hashicorp/setup-terraform@v3`, `actions/setup-go@v5`, `actions/setup-node@v4`
 - 006-cognito-app-auth: Added Go JWT validation (golang-jwt/jwt/v5), Swift 5.9+ (iOS), Kotlin 1.9+ (Android), secure token storage
 - 005-k8s-api-deploy: Added YAML (Kubernetes manifests), Dockerfile + kubectl, Docker, AWS ECR
-- 004-health-check-api: Added Go 1.22+ + net/http (標準庫)
-- 003-cognito-gmail-login: Added TypeScript 5.x (Frontend), HCL (Terraform) + React 18.3, Vite 6.x, AWS Amplify (Cognito SDK), Tailwind CSS 4.x
