@@ -149,6 +149,22 @@ module "loadbalancing" {
 }
 
 # =============================================================================
+# CodeBuild Module
+# =============================================================================
+
+module "codebuild" {
+  source = "../../modules/codebuild"
+
+  environment      = var.environment
+  project_name     = var.project_name
+  github_repo      = "https://github.com/avachen2005/avarobotics.git"
+  github_repo_name = "avachen2005/avarobotics"
+  ecr_repo_name    = "${var.project_name}-api"
+
+  tags = var.additional_tags
+}
+
+# =============================================================================
 # Cognito Module
 # =============================================================================
 

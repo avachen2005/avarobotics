@@ -76,3 +76,14 @@ func IAMVars() map[string]interface{} {
 		"allowed_users": []string{"arn:aws:iam::123456789012:user/test_user"},
 	}
 }
+
+// CodebuildVars returns test variables for the codebuild module.
+func CodebuildVars() map[string]interface{} {
+	return map[string]interface{}{
+		"environment":      DefaultEnvironment,
+		"project_name":     DefaultProjectName,
+		"github_repo":      "https://github.com/avachen2005/avarobotics.git",
+		"github_repo_name": "avachen2005/avarobotics",
+		"ecr_repo_name":    DefaultProjectName + "-api",
+	}
+}

@@ -22,6 +22,7 @@ func TestTerraformValidateAllModules(t *testing.T) {
 		"loadbalancing",
 		"iam",
 		"cognito",
+		"codebuild",
 	}
 
 	for _, mod := range modules {
