@@ -112,10 +112,10 @@
 
 **Purpose**: 驗證跨組件行為和邊界情況
 
-- [ ] T012 Verify path filter skip behavior — push a docs-only change (e.g., `README.md`), confirm all three status checks pass as skipped
-- [ ] T013 Verify parallel execution — push a change touching `api/`, `terraform/`, and `web/` simultaneously, confirm all three real jobs run in parallel
+- [x] T012 Verify path filter skip behavior — push a docs-only change (e.g., `README.md`), confirm all three status checks pass as skipped
+- [x] T013 Verify parallel execution — push a change touching `api/`, `terraform/`, and `web/` simultaneously, confirm all three real jobs run in parallel
 - [x] T014 Fix any existing Go lint issues found by golangci-lint in `api/` directory (if CI fails on first run)
-- [ ] T015 Run quickstart.md validation steps from `specs/001-ci-lint-test/quickstart.md`
+- [x] T015 Run quickstart.md validation steps from `specs/001-ci-lint-test/quickstart.md`
 - [x] T016 Update `README.md` with CI pipeline documentation — add CI/CD section describing workflow architecture (path filter → conditional jobs → wrapper status checks), required checks (`Go CI`, `Terraform CI`, `Web CI`), and how to verify CI status on PRs
 
 ---
