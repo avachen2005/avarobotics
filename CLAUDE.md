@@ -94,6 +94,8 @@ IAM User (透過 assume role 獲取權限)
 - Go 1.22 (API), HCL (Terraform >= 1.5.0) + AWS Provider ~> 5.0, Docker (multi-stage build) (040-codebuild-ecr-api)
 - ECR (container images), CloudWatch Logs (build logs) (040-codebuild-ecr-api)
 - Swift 5.9+ + SwiftUI (system framework), XCTest (system framework) — no third-party dependencies (042-ios-design-tokens)
+- Kotlin 1.9+ + Jetpack Compose (BOM 2025.08.00+), Material 3, Hilt (044-android-design-tokens)
+- N/A (design tokens are compile-time constants) (044-android-design-tokens)
 
 ## GitHub Issue Workflow (實作時必須遵循)
 
@@ -241,5 +243,6 @@ gh project item-list 4 --owner avachen2005 --format json | jq '.items[] | select
 
 ## Recent Changes
 - 042-ios-design-tokens: Added Swift 5.9+ + SwiftUI (system framework), XCTest (system framework) — no third-party dependencies
+- 044-android-design-tokens: Added Kotlin 1.9+ + Jetpack Compose (BOM 2025.08.00+), Material 3, Hilt
 - 008-api-ci-cd-pipeline: Added YAML (GitHub Actions workflows), HCL (Terraform for IAM), Go 1.22 (golangci-lint config) + `actions/checkout@v4`, `actions/setup-go@v5`, `golangci/golangci-lint-action@v4`, `aws-actions/configure-aws-credentials@v4`, `aws-actions/aws-codebuild-run-build@v1`
 - 040-codebuild-ecr-api: Added Go 1.22 (API), HCL (Terraform >= 1.5.0) + AWS Provider ~> 5.0, Docker (multi-stage build)
